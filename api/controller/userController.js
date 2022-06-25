@@ -1,7 +1,7 @@
 const User = require("../models/User");
 
 // UPDATE USER
-// /api/user/:id
+// /api/users/:id
 
 const updateUser = async (req, res) => {
   const { params } = req;
@@ -27,7 +27,7 @@ const updateUser = async (req, res) => {
 };
 
 // DELETE USER
-// /api/user/:id
+// /api/users/:id
 
 const deleteUser = async (req, res) => {
   const { params } = req;
@@ -40,7 +40,7 @@ const deleteUser = async (req, res) => {
 };
 
 // GET USER
-// /api/user/:id
+// /api/users/:id
 
 const getUser = async (req, res) => {
   const { params } = req;
@@ -54,7 +54,7 @@ const getUser = async (req, res) => {
 };
 
 // GET ALL USER
-// /api/user
+// /api/users
 // @access private
 
 const getAllUser = async (req, res) => {
@@ -70,7 +70,7 @@ const getAllUser = async (req, res) => {
 };
 
 // GET USER STATS
-// /api/user/stats
+// /api/users/stats
 // @access private
 
 const getUserStats = async (req, res) => {
