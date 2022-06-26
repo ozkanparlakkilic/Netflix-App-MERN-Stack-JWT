@@ -57,15 +57,41 @@ const getList = async (req, res) => {
         list = await List.aggregate([
           { $sample: { size: 10 } },
           { $match: { type: type, genre: genre } },
+          {
+            $lookup: {
+              from: "movies",
+              foreignField: "_id",
+              localField: "content",
+              as: "movie",
+            },
+          },
         ]);
       } else {
         list = await List.aggregate([
           { $sample: { size: 10 } },
           { $match: { type: type } },
+          {
+            $lookup: {
+              from: "movies",
+              foreignField: "_id",
+              localField: "content",
+              as: "movie",
+            },
+          },
         ]);
       }
     } else {
-      list = await List.aggregate([{ $sample: { size: 10 } }]);
+      list = await List.aggregate([
+        { $sample: { size: 10 } },
+        {
+          $lookup: {
+            from: "movies",
+            foreignField: "_id",
+            localField: "content",
+            as: "movies",
+          },
+        },
+      ]);
     }
     res.status(200).json(list);
   } catch (error) {

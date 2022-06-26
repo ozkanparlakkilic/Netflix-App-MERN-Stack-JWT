@@ -13,8 +13,8 @@ const checkAdmin = require("../middlewares/checkAdmin/checkAdminMiddlewares");
 
 router
   .route("/")
-  .post(authMiddlewares, checkAdmin, createList)
-  .get(authMiddlewares, getList);
+  .get(authMiddlewares, getList)
+  .post(authMiddlewares, checkAdmin, createList);
 
 // UPDATE
 // DELETE
