@@ -1,5 +1,3 @@
-
-
 .featured {
     height: 90vh;
     position: relative;
@@ -23,7 +21,7 @@
             padding: 5px;
             border-radius: 5px;
             outline: none;
-        }  
+        }
     }
 
     img {
@@ -43,6 +41,7 @@
 
         img {
             width: 400px;
+            height: 200px;
         }
 
         .desc {
@@ -70,7 +69,7 @@
                 color: var(--main-color);
             }
 
-            &.more{
+            &.more {
                 background-color: grey;
                 color: white;
             }
