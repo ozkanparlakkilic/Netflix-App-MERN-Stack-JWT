@@ -4,6 +4,7 @@ const mongoDbConn = require("./config/mongoDbConn");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const movieRoutes = require("./routes/movieRoutes");
+const listRoutes = require("./routes/listRoutes");
 
 dotenv.config();
 mongoDbConn();
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/movies", movieRoutes);
+app.use("/api/lists", listRoutes);
 
 app.listen(8000, () => {
   console.log("here");
