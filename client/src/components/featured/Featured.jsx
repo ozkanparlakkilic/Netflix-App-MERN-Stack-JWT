@@ -6,7 +6,7 @@ export const Featured = ({ type }) => {
     <div className="featured">
       {type && (
         <div className="category">
-          <span>{type === "movie" ? "Movies" : "Series"}</span>
+          <span>{type === "movies" ? "Movies" : "Series"}</span>
           <select defaultValue="0" name="genre" id="genre">
             <option>Genre</option>
             <option value="adventure">Adventure</option>
