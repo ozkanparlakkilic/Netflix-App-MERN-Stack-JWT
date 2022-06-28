@@ -1,8 +1,7 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
-import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import { baseUrl } from "../../helpers/baseUrl";
+import axiosInstance from "../../utils/axiosInstance";
 import "./featured.scss";
 
 export const Featured = ({ type }) => {
@@ -11,14 +10,9 @@ export const Featured = ({ type }) => {
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        const res = await axios({
-          method: "get",
-          url: `${baseUrl}/api/movies/random?type=${type}`,
-          headers: {
-            token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjc2NWQ1ZjdkNjM5MzQ5Yzc1NTUyOSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NjIwOTg3NywiZXhwIjoxNjU2NjQxODc3fQ.C5Pkj6zJKOp-yoQXp-JtJ7tm47om44eflxCAkSosolE",
-          },
-        });
+        const res = await axiosInstance.get(
+          `/api/movies/random?${type ? "type" : ""}`
+        );
         setContent(res.data[0]);
       } catch (error) {
         console.log(error);
@@ -29,7 +23,6 @@ export const Featured = ({ type }) => {
 
   return (
     <div className="featured">
-      {console.log(content)}
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>

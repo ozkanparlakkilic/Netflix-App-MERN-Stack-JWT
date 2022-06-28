@@ -13,7 +13,6 @@ const horizontalSpace = 50;
 const emptyBetweenMovie = 2.5;
 
 export const ListItem = ({ index, movie }) => {
-  console.log(movie);
   const [isHovered, setIsHovered] = useState(false);
   const trailer = movie.trailer;
 

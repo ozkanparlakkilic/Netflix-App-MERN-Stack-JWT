@@ -1,11 +1,13 @@
 import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useUser } from "../../hook/useUser";
 import "./Navbar.scss";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { logout } = useUser();
 
   useEffect(() => {
     window.onscroll = () => {
@@ -14,6 +16,7 @@ export const Navbar = () => {
 
     return (window.scroll = null);
   }, [isScrolled]);
+
   return (
     <div className={`navbar ${isScrolled && "scrolled"}`}>
       <div className="container">
@@ -48,7 +51,7 @@ export const Navbar = () => {
             <ArrowDropDown className="icon" />
             <div className="options">
               <span>Settings</span>
-              <span>Log Out</span>
+              <span onClick={logout}>Log Out</span>
             </div>
           </div>
         </div>
